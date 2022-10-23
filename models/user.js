@@ -21,13 +21,20 @@ password: {
 
 const User = model("user", userSchema);
 
-const joiSchema = Joi.object({
+const joiRegisterSchema = Joi.object({
 password: Joi.string().required(),
   email: Joi.string().required(),
   subscription: Joi.string().valid("starter", "pro", "business"),
 });
 
+const joiLoginSchema = Joi.object({
+  password: Joi.string().required(),
+  email: Joi.string().required(),
+  
+});
+
 module.exports = {
     User,
-    joiSchema
+  joiRegisterSchema,
+    joiLoginSchema
 };
