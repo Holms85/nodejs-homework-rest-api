@@ -16,7 +16,10 @@ password: {
     enum: ["starter", "pro", "business"],
     default: "starter"
   },
-  token: String
+  token: {
+    type: String,
+    default: null
+  }
 }, { versionKey: false, timestamps: true });
 
 const User = model("user", userSchema);
