@@ -1,17 +1,16 @@
-
 const getCurrent = async (req, res, next) => {
-try {
+  try {
     const { email, subscription } = req.user;
     res.json({
-        status: "success",
-        code: 200,
-        ResponseBody: {
-            email,
-            subscription
-        }
-    })
-} catch (error) {
+      status: "success",
+      code: 200,
+      ResponseBody: {
+        email,
+        subscription,
+      },
+    });
+  } catch (error) {
     next(error);
-}
-}
+  }
+};
 module.exports = getCurrent;

@@ -7,11 +7,11 @@ const {joiRegisterSchema} = require("../../models/user");
 const register = async (req, res, next) => {
     try {
         const { error } = joiRegisterSchema.validate(req.body);
-    if (error) {
-      error.status = 400;
-      error.message = "missing required name field";
-      throw error;
-    }
+        if (error) {
+          error.status = 400;
+          error.message = "missing required name field";
+          throw error;
+        }
         const { password, email, subscription } = req.body;
         const user = await User.findOne({email});
         if (user) {
